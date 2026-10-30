@@ -3,21 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web 3.0 - Future AI</title>
+    <title>NEURA3 // Autonomous Web3 & AI Nexus</title>
+    <meta name="description" content="Plataforma de última generación que fusiona Web 3.0, contratos inteligentes y agentes de Inteligencia Artificial autónomos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="dynamic-bg"></div>
-    <div class="content">
-        <h1 class="glitch" data-text="AI IMPLEMENTATION">AI IMPLEMENTATION</h1>
-        <p>Explora el futuro de la web interactiva con inteligencia artificial.</p>
-        <button class="neon-button">INICIAR PROYECTO</button>
+<body class="cyber-theme">
+    <!-- 3D Three.js Interactive Neural & Blockchain Background -->
+    <div id="dynamic-bg" aria-hidden="true"></div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Main Navigation Header -->
+    <header class="cyber-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <div class="logo-symbol">
+                    <span class="polygon-ring"></span>
+                    <span class="core-dot"></span>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">NEURA<span class="brand-accent">3</span></span>
+                    <span class="brand-subtitle">AI & WEB3 NEXUS</span>
+                </div>
+            </div>
+            
+            <!-- Live Crypto Market Marquee Ticker -->
+            <div class="live-ticker-wrap">
+                <div class="live-ticker" id="header-ticker">
+                    <span class="ticker-badge">🔴 ORÁCULO EN VIVO</span>
+                    <span class="ticker-item" id="ticker-btc">BTC: $--</span>
+                    <span class="ticker-item" id="ticker-eth">ETH: $--</span>
+                    <span class="ticker-item" id="ticker-sol">SOL: $--</span>
+                    <span class="ticker-item" id="ticker-neura">NEURA: $14.85</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Audio Toggle Button -->
+            <button id="btn-toggle-sound" class="hud-btn icon-btn" title="Activar/Desactivar Efectos de Sonido">
+                <span id="sound-icon">🔊</span>
+            </button>
+
+            <!-- Gas Station Indicator -->
+            <div class="gas-indicator" title="Gas Tracker en tiempo real">
+                <span class="gas-flame">⚡</span>
+                <span id="header-gas-display">16 Gwei</span>
+            </div>
+
+            <!-- Network Selector Dropdown -->
+            <div class="network-select-wrap">
+                <select id="network-select" class="cyber-select">
+                    <option value="neura">Neura3 AI Chain (L1)</option>
+                    <option value="eth">Ethereum Mainnet</option>
+                    <option value="sepolia">Sepolia Testnet</option>
+                    <option value="arbitrum">Arbitrum One (L2)</option>
+                    <option value="polygon">Polygon PoS</option>
+                </select>
+            </div>
+
+            <!-- Connect Wallet Button / HUD User Profile -->
+            <div class="wallet-control-area">
+                <button id="btn-connect-wallet" class="neon-btn pulse-glow">
+                    <span class="btn-icon">⚡</span>
+                    <span id="wallet-btn-text">CONECTAR BILLETERA</span>
+                </button>
+
+                <!-- Connected Dropdown Menu (hidden by default) -->
+                <div id="wallet-dropdown" class="wallet-dropdown hidden">
+                    <div class="wallet-dropdown-header">
+                        <span class="status-dot online"></span>
+                        <span id="dropdown-address-badge">0x0000...0000</span>
+                    </div>
+                    <div class="wallet-balance-box">
+                        <div class="bal-row">
+                            <span class="bal-label">Saldo $NEURA:</span>
+                            <span class="bal-val" id="dropdown-bal-neura">100.00</span>
+                        </div>
+                        <div class="bal-row">
+                            <span class="bal-label">Saldo ETH:</span>
+                            <span class="bal-val" id="dropdown-bal-eth">2.5000</span>
+                        </div>
+                    </div>
+                    <div class="wallet-actions">
+                        <button id="btn-faucet" class="hud-sub-btn">💧 Pedir Faucet (+25 NEURA)</button>
+                        <button id="btn-view-pk" class="hud-sub-btn">🔑 Ver Llave Privada</button>
+                        <button id="btn-disconnect" class="hud-sub-btn danger">Desconectar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+        
+        <!-- Hero HUD Section -->
+        <section class="hero-section">
+            <div class="cyber-pill">
+                <span class="pulsing-radar"></span>
+                <span>DESCENTRALIZACIÓN NEURONAL v4.2 • WEB 3.0 ACTIVA</span>
+            </div>
+            
+            <h1 class="hero-title glitch-text" data-text="AUTONOMOUS WEB3 & AI NEXUS">
+                AUTONOMOUS WEB3 & AI NEXUS
+            </h1>
+            
+            <p class="hero-desc">
+                La plataforma descentralizada más avanzada para auditoría y generación de contratos inteligentes con Inteligencia Artificial, acuñación de NFTs generativos on-chain, oráculos predictivos y gobernanza DAO autónoma.
+            </p>
+
+            <div class="hero-stats-bar">
+                <div class="stat-card">
+                    <span class="stat-number" id="hero-stat-tps">4,280</span>
+                    <span class="stat-label">TPS Neural L2</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="hero-stat-audits">18,924</span>
+                    <span class="stat-label">Auditorías IA Realizadas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="hero-stat-gas">0.0001 $</span>
+                    <span class="stat-label">Costo Promedio Tx</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Autónomo y No Custodial</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs Bar -->
+        <nav class="cyber-tabs-nav" aria-label="Módulos del Sistema">
+            <button class="tab-btn active" data-tab="tab-auditor">
+                <span class="tab-icon">🛡️</span> Auditor & Generador IA
+            </button>
+            <button class="tab-btn" data-tab="tab-nft">
+                <span class="tab-icon">🎨</span> Estudio Generativo NFT
+            </button>
+            <button class="tab-btn" data-tab="tab-oracle">
+                <span class="tab-icon">📈</span> Oráculo & Sentimiento
+            </button>
+            <button class="tab-btn" data-tab="tab-dao">
+                <span class="tab-icon">🏛️</span> Gobernanza DAO
+            </button>
+            <button class="tab-btn" data-tab="tab-chat">
+                <span class="tab-icon">🤖</span> Agente Conversacional
+            </button>
+            <button class="tab-btn" data-tab="tab-ledger">
+                <span class="tab-icon">⛓️</span> Transacciones On-Chain
+            </button>
+        </nav>
+
+        <!-- Tab 1: AI Smart Contract Auditor & Generator -->
+        <section id="tab-auditor" class="tab-content active">
+            <div class="module-grid-two">
+                
+                <!-- Left: Code Editor and Templates -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">⚡</span>
+                            <h3>Editor de Smart Contracts (Solidity)</h3>
+                        </div>
+                        <div class="template-selector">
+                            <button class="template-btn active" data-template="vulnerable_vault">Bóveda Vulnerable</button>
+                            <button class="template-btn" data-template="erc20_token">Token ERC-20</button>
+                            <button class="template-btn" data-template="erc721_nft">NFT ERC-721</button>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-wrap">
+                        <textarea id="solidity-editor" class="code-editor" spellcheck="false"></textarea>
+                    </div>
+
+                    <div class="card-footer-controls">
+                        <button id="btn-run-audit" class="neon-btn cyan-glow">
+                            <span>🔍 EJECUTAR AUDITORÍA NEURONAL IA</span>
+                        </button>
+                        <button id="btn-clear-editor" class="hud-sub-btn">Limpiar</button>
+                    </div>
+
+                    <!-- AI Prompt Contract Generator -->
+                    <div class="ai-prompt-generator-box">
+                        <label for="contract-prompt-input" class="input-label">
+                            ✨ Generador de Contratos por Lenguaje Natural (IA):
+                        </label>
+                        <div class="prompt-input-group">
+                            <input type="text" id="contract-prompt-input" class="cyber-input" placeholder="Ej: Crea un token con 5% de quema por transacción y límite anti-ballenas...">
+                            <button id="btn-generate-contract" class="neon-btn purple-glow">Generar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: AI Audit Report Results -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">📊</span>
+                            <h3>Diagnóstico y Reporte de Seguridad IA</h3>
+                        </div>
+                        <div id="security-score-badge" class="badge-status">CALCULANDO</div>
+                    </div>
+
+                    <!-- Score Gauge -->
+                    <div class="audit-gauge-container">
+                        <div class="gauge-ring-wrap">
+                            <div class="gauge-circle" id="gauge-circle">
+                                <span class="gauge-value" id="gauge-score">--</span>
+                                <span class="gauge-sub">/ 100</span>
+                            </div>
+                        </div>
+                        <div class="gauge-details">
+                            <h4 id="audit-status-title">Presiona "EJECUTAR AUDITORÍA NEURONAL"</h4>
+                            <p id="audit-status-desc">El modelo neuronal escaneará vectores de ataque como reentrancy, desbordamientos, gas ineficiente y accesos indebidos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Issue List -->
+                    <div class="issues-list-container" id="issues-list">
+                        <!-- Populated by JS -->
+                        <div class="empty-state">No hay auditorías activas. Selecciona un contrato y haz clic en auditar.</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Tab 2: AI Generative NFT Studio -->
+        <section id="tab-nft" class="tab-content">
+            <div class="module-grid-two">
+                
+                <!-- Left: Canvas & Generation Controls -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🧠</span>
+                            <h3>Motor de Síntesis Generativa On-Chain</h3>
+                        </div>
+                        <span class="badge-accent">SINTETIZADOR 2D NEURAL</span>
+                    </div>
+
+                    <div class="canvas-viewport-wrap">
+                        <canvas id="nft-canvas" width="480" height="480"></canvas>
+                    </div>
+
+                    <div class="nft-controls-box">
+                        <div class="prompt-input-group">
+                            <input type="text" id="nft-prompt-input" class="cyber-input" value="Cybernetic Singularity 001" placeholder="Describe el tema de la obra generativa...">
+                            <button id="btn-generate-nft" class="neon-btn cyan-glow">🎨 Generar Obra</button>
+                        </div>
+                        
+                        <div class="hash-metadata-strip">
+                            <div class="meta-item">
+                                <span class="meta-label">SHA-256 Hash:</span>
+                                <span class="meta-val" id="nft-hash-display">0xCalculando...</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">IPFS CID v1:</span>
+                                <span class="meta-val" id="nft-cid-display">ipfs://bafybeic...</span>
+                            </div>
+                        </div>
+
+                        <button id="btn-mint-nft" class="neon-btn-primary full-width">
+                            <span>💎 ACUÑAR NFT EN BLOCKCHAIN (5.00 NEURA)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Minted Collection Gallery -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🖼️</span>
+                            <h3>Colección Acuñada en tu Billetera</h3>
+                        </div>
+                        <span class="badge-counter" id="collection-count">0 NFTs</span>
+                    </div>
+
+                    <div class="nft-gallery-grid" id="nft-gallery">
+                        <div class="empty-state">
+                            Aún no has acuñado ningún NFT en esta sesión. ¡Genera uno y haz clic en Acuñar!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Tab 3: Live Crypto Oracle & AI Market Sentiment -->
+        <section id="tab-oracle" class="tab-content">
+            <div class="oracle-dashboard">
+                
+                <!-- Crypto Cards Row -->
+                <div class="tokens-grid" id="oracle-tokens-grid">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Sentiment & Web3 Insights Grid -->
+                <div class="module-grid-two">
+                    
+                    <!-- AI Neural Sentiment Card -->
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <div class="card-title-group">
+                                <span class="card-icon">🔮</span>
+                                <h3>Índice de Sentimiento Neuronal & Ballenas</h3>
+                            </div>
+                            <span class="badge-status success">EN VIVO</span>
+                        </div>
+
+                        <div class="sentiment-meter-box">
+                            <div class="meter-bar-track">
+                                <div class="meter-bar-fill" id="sentiment-fill" style="width: 78%;"></div>
+                            </div>
+                            <div class="meter-labels">
+                                <span>MIEDO EXTREMO</span>
+                                <span id="sentiment-score-text">78 - CODICIA NEURONAL</span>
+                                <span>EUFORIA</span>
+                            </div>
+                        </div>
+
+                        <div class="sentiment-metrics-list">
+                            <div class="metric-row">
+                                <span class="metric-name">Actividad de Ballenas:</span>
+                                <span class="metric-value highlight" id="whale-activity">ACUMULACIÓN MASIVA</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-name">Flujo de Smart Money:</span>
+                                <span class="metric-value green" id="smart-money-flow">+14.2% (24H)</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-name">Narrativa Dominante IA:</span>
+                                <span class="metric-value" id="top-narrative">DePIN + Agentes Autónomos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web3 Gas & Network Congestion -->
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <div class="card-title-group">
+                                <span class="card-icon">⚡</span>
+                                <h3>Estación de Gas & Congestión de Red</h3>
+                            </div>
+                            <span class="badge-accent">EIP-1559 OPTIMIZED</span>
+                        </div>
+
+                        <div class="gas-tiers-grid">
+                            <div class="gas-tier-card">
+                                <span class="tier-speed">LENTO</span>
+                                <span class="tier-gwei" id="gas-slow">12 Gwei</span>
+                                <span class="tier-time">~ 3 min</span>
+                            </div>
+                            <div class="gas-tier-card featured">
+                                <span class="tier-speed">ESTÁNDAR</span>
+                                <span class="tier-gwei" id="gas-normal">16 Gwei</span>
+                                <span class="tier-time">~ 30 seg</span>
+                            </div>
+                            <div class="gas-tier-card">
+                                <span class="tier-speed">RÁPIDO</span>
+                                <span class="tier-gwei" id="gas-fast">22 Gwei</span>
+                                <span class="tier-time">~ 12 seg</span>
+                            </div>
+                            <div class="gas-tier-card">
+                                <span class="tier-speed">INSTANTÁNEO</span>
+                                <span class="tier-gwei" id="gas-instant">28 Gwei</span>
+                                <span class="tier-time">Bloque Siguiente</span>
+                            </div>
+                        </div>
+
+                        <p class="gas-footnote">
+                            Optimizado mediante oráculos neuronales para reducir hasta un 40% en gas fees usando transacciones por lotes (Batching).
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Decentralized Autonomous Organization (DAO) -->
+        <section id="tab-dao" class="tab-content">
+            <div class="dao-wrapper">
+                <div class="dao-header-box">
+                    <div>
+                        <h2>Gobernanza Descentralizada Neura3 DAO</h2>
+                        <p>Vota en decisiones clave del protocolo utilizando el poder de voto de tus tokens $NEURA.</p>
+                    </div>
+                    <button id="btn-open-create-prop" class="neon-btn cyan-glow">
+                        ➕ Crear Propuesta
+                    </button>
+                </div>
+
+                <div class="proposals-list" id="proposals-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: AI Web3 Conversational Assistant -->
+        <section id="tab-chat" class="tab-content">
+            <div class="cyber-card chat-card-full">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <span class="card-icon">🤖</span>
+                        <h3>Agente Autónomo Neura3 LLM (Especialista Web3)</h3>
+                    </div>
+                    <span class="badge-status online">AGENTE ACTIVO</span>
+                </div>
+
+                <div class="chat-messages-container" id="chat-messages">
+                    <div class="chat-message bot">
+                        <div class="msg-avatar">🤖</div>
+                        <div class="msg-bubble">
+                            <strong>Saludos, explorador Web3.</strong><br>
+                            Soy el agente neuronal autónomo de Neura3. Puedo auditar contratos, explicar vulnerabilidades como reentrancia o frontrunning, recomendar arquitecturas de gas y responder cualquier duda sobre la Web 3.0. ¿En qué puedo asistirte hoy?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" class="cyber-input" placeholder="Pregunta sobre Solidity, Web3, DeFi, zk-SNARKs o optimización de gas...">
+                    <button id="btn-send-chat" class="neon-btn cyan-glow">Enviar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 6: On-Chain Transactions Ledger -->
+        <section id="tab-ledger" class="tab-content">
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <span class="card-icon">⛓️</span>
+                        <h3>Registro Inmutable de Transacciones On-Chain</h3>
+                    </div>
+                    <span class="badge-counter" id="ledger-tx-count">0 Transacciones</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="cyber-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Hash de Transacción</th>
+                                <th>Monto / Detalle</th>
+                                <th>Estado</th>
+                                <th>Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledger-tbody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal: Create DAO Proposal -->
+    <div id="modal-create-proposal" class="cyber-modal-overlay hidden">
+        <div class="cyber-modal">
+            <div class="modal-header">
+                <h3>Crear Nueva Propuesta DAO</h3>
+                <button class="btn-close-modal" id="btn-close-proposal-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label class="input-label">Título de la Propuesta:</label>
+                <input type="text" id="new-prop-title" class="cyber-input" placeholder="Ej: Implementar puente cross-chain con Base">
+                
+                <label class="input-label">Categoría:</label>
+                <select id="new-prop-category" class="cyber-select full-width">
+                    <option value="Infraestructura">Infraestructura</option>
+                    <option value="Ecosistema">Ecosistema & Tesorería</option>
+                    <option value="Seguridad">Seguridad & Auditoría</option>
+                    <option value="General">General</option>
+                </select>
+
+                <label class="input-label">Descripción detallada:</label>
+                <textarea id="new-prop-desc" class="cyber-textarea" rows="4" placeholder="Explica los objetivos, motivación y beneficios de la propuesta..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-submit-proposal" class="neon-btn-primary full-width">Publicar Propuesta on-chain</button>
+            </div>
+        </div>
     </div>
-    <div class="floating-objects">
-        <div class="cube cube1"></div>
-        <div class="cube cube2"></div>
-        <div class="cube cube3"></div>
+
+    <!-- Modal: Private Key Warning / Export -->
+    <div id="modal-private-key" class="cyber-modal-overlay hidden">
+        <div class="cyber-modal">
+            <div class="modal-header">
+                <h3>Llave Privada (Billetera Neural Local)</h3>
+                <button class="btn-close-modal" id="btn-close-pk-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="warning-text">⚠️ <strong>ADVERTENCIA:</strong> Nunca compartas tu llave privada con nadie. Esta llave te da control total sobre los activos de esta billetera.</p>
+                <div class="pk-display-box" id="pk-display-text">0x000...</div>
+                <button id="btn-copy-pk" class="hud-sub-btn full-width">Copiar al Portapapeles</button>
+            </div>
+        </div>
     </div>
+
+    <!-- Main Logic Script -->
     <script type="module" src="script.js"></script>
 </body>
 </html>
