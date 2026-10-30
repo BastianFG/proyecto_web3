@@ -1,64 +1,95 @@
 import * as THREE from 'three';
 
-export function init3DBackground(containerId = 'dynamic-bg') {
+export function initModernBackground(containerId = 'dynamic-bg') {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Clear previous elements inside container
     container.innerHTML = '';
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x060713, 0.002);
+    scene.fog = new THREE.FogExp2(0x0a0c16, 0.0018);
 
     const camera = new THREE.PerspectiveCamera(
-        60,
+        55,
         window.innerWidth / window.innerHeight,
         0.1,
         1000
     );
-    camera.position.z = 220;
+    camera.position.z = 180;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Ambient & Point Lights
-    const ambientLight = new THREE.AmbientLight(0x0f172a, 2);
+    // Subtle Ambient Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
-    const light1 = new THREE.PointLight(0x00f3ff, 3, 400);
-    light1.position.set(100, 100, 100);
-    scene.add(light1);
+    const lightIndigo = new THREE.PointLight(0x6366f1, 3, 350);
+    lightIndigo.position.set(120, 80, 60);
+    scene.add(lightIndigo);
 
-    const light2 = new THREE.PointLight(0xbc13fe, 3, 400);
-    light2.position.set(-100, -100, 50);
-    scene.add(light2);
+    const lightCyan = new THREE.PointLight(0x06b6d4, 2.5, 350);
+    lightCyan.position.set(-120, -60, 40);
+    scene.add(lightCyan);
 
-    // Neural Particles Group
-    const particleCount = 120;
+    const lightViolet = new THREE.PointLight(0xa855f7, 2, 300);
+    lightViolet.position.set(0, 100, -40);
+    scene.add(lightViolet);
+
+    // Glowing Floating Soft Spheres (Glassmorphism orbs)
+    const orbsGroup = new THREE.Group();
+    const orbGeometry = new THREE.SphereGeometry(18, 32, 32);
+    const orbColors = [0x6366f1, 0x06b6d4, 0x8b5cf6, 0x3b82f6];
+
+    const orbs = [];
+    for (let i = 0; i < 7; i++) {
+        const material = new THREE.MeshPhysicalMaterial({
+            color: orbColors[i % orbColors.length],
+            emissive: orbColors[i % orbColors.length],
+            emissiveIntensity: 0.25,
+            roughness: 0.1,
+            metalness: 0.1,
+            transparent: true,
+            opacity: 0.28,
+            wireframe: false
+        });
+
+        const mesh = new THREE.Mesh(orbGeometry, material);
+        mesh.scale.setScalar(0.6 + Math.random() * 0.8);
+        mesh.position.set(
+            (Math.random() - 0.5) * 260,
+            (Math.random() - 0.5) * 160,
+            (Math.random() - 0.5) * 90 - 30
+        );
+
+        mesh.userData = {
+            speedX: (Math.random() - 0.5) * 0.08,
+            speedY: (Math.random() - 0.5) * 0.08,
+            phase: Math.random() * Math.PI * 2
+        };
+
+        orbsGroup.add(mesh);
+        orbs.push(mesh);
+    }
+    scene.add(orbsGroup);
+
+    // Soft Bokeh Particle Constellation
+    const particleCount = 80;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
-    const velocities = [];
 
-    const cyan = new THREE.Color(0x00f3ff);
-    const purple = new THREE.Color(0xbc13fe);
-    const lime = new THREE.Color(0x00ff88);
+    const col1 = new THREE.Color(0x6366f1);
+    const col2 = new THREE.Color(0x06b6d4);
 
     for (let i = 0; i < particleCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 350;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 250;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 200;
+        positions[i * 3] = (Math.random() - 0.5) * 320;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 220;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 150;
 
-        velocities.push({
-            x: (Math.random() - 0.5) * 0.35,
-            y: (Math.random() - 0.5) * 0.35,
-            z: (Math.random() - 0.5) * 0.35
-        });
-
-        // Dynamic gradient colors
-        const mixed = Math.random() > 0.5 ? cyan : (Math.random() > 0.5 ? purple : lime);
+        const mixed = col1.clone().lerp(col2, Math.random());
         colors[i * 3] = mixed.r;
         colors[i * 3 + 1] = mixed.g;
         colors[i * 3 + 2] = mixed.b;
@@ -67,159 +98,72 @@ export function init3DBackground(containerId = 'dynamic-bg') {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    // Circle texture for particles
-    const canvas = document.createElement('canvas');
-    canvas.width = 32;
-    canvas.height = 32;
-    const ctx = canvas.getContext('2d');
-    const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-    grad.addColorStop(0, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.3, 'rgba(0,243,255,0.8)');
-    grad.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(16, 16, 16, 0, Math.PI * 2);
-    ctx.fill();
-    const texture = new THREE.CanvasTexture(canvas);
+    // Particle sprite
+    const pCanvas = document.createElement('canvas');
+    pCanvas.width = 32;
+    pCanvas.height = 32;
+    const pCtx = pCanvas.getContext('2d');
+    const pGrad = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+    pGrad.addColorStop(0, 'rgba(255,255,255,1)');
+    pGrad.addColorStop(0.4, 'rgba(99,102,241,0.6)');
+    pGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    pCtx.fillStyle = pGrad;
+    pCtx.beginPath();
+    pCtx.arc(16, 16, 16, 0, Math.PI * 2);
+    pCtx.fill();
 
-    const material = new THREE.PointsMaterial({
-        size: 5,
-        map: texture,
+    const pTexture = new THREE.CanvasTexture(pCanvas);
+    const pMaterial = new THREE.PointsMaterial({
+        size: 4,
+        map: pTexture,
         transparent: true,
         vertexColors: true,
         blending: THREE.AdditiveBlending,
         depthWrite: false
     });
 
-    const particles = new THREE.Points(geometry, material);
+    const particles = new THREE.Points(geometry, pMaterial);
     scene.add(particles);
 
-    // Synaptic Neural Connections
-    const linesMaterial = new THREE.LineBasicMaterial({
-        color: 0x00f3ff,
-        transparent: true,
-        opacity: 0.2,
-        blending: THREE.AdditiveBlending
-    });
-    let linesMesh;
-
-    // Floating Web3 Blockchain Nodes (Crystalline Polyhedra)
-    const blocksGroup = new THREE.Group();
-    const geometries = [
-        new THREE.IcosahedronGeometry(12, 0),
-        new THREE.OctahedronGeometry(10, 0),
-        new THREE.BoxGeometry(14, 14, 14),
-        new THREE.TetrahedronGeometry(11, 0)
-    ];
-
-    const blockMeshes = [];
-    for (let i = 0; i < 8; i++) {
-        const geom = geometries[i % geometries.length];
-        const mat = new THREE.MeshStandardMaterial({
-            color: i % 2 === 0 ? 0x00f3ff : 0xbc13fe,
-            wireframe: true,
-            emissive: i % 2 === 0 ? 0x005577 : 0x440066,
-            roughness: 0.2,
-            metalness: 0.9
-        });
-        const mesh = new THREE.Mesh(geom, mat);
-        mesh.position.set(
-            (Math.random() - 0.5) * 300,
-            (Math.random() - 0.5) * 180,
-            (Math.random() - 0.5) * 100 - 40
-        );
-        mesh.userData = {
-            rotSpeedX: (Math.random() - 0.5) * 0.02,
-            rotSpeedY: (Math.random() - 0.5) * 0.02,
-            floatSpeed: 0.001 + Math.random() * 0.002,
-            offset: Math.random() * Math.PI * 2
-        };
-        blocksGroup.add(mesh);
-        blockMeshes.push(mesh);
-    }
-    scene.add(blocksGroup);
-
-    // Mouse movement interaction
+    // Mouse movement parallax
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
 
-    window.addEventListener('mousemove', (event) => {
-        mouseX = (event.clientX - windowHalfX) * 0.1;
-        mouseY = (event.clientY - windowHalfY) * 0.1;
+    window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) * 0.05;
+        mouseY = (e.clientY - window.innerHeight / 2) * 0.05;
     });
 
-    // Resize listener
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Animation Loop
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     function animate() {
         requestAnimationFrame(animate);
 
         const elapsedTime = clock.getElapsedTime();
-        targetX += (mouseX - targetX) * 0.05;
-        targetY += (mouseY - targetY) * 0.05;
+        targetX += (mouseX - targetX) * 0.04;
+        targetY += (mouseY - targetY) * 0.04;
 
-        camera.position.x = targetX * 0.3;
-        camera.position.y = -targetY * 0.3;
+        camera.position.x = targetX;
+        camera.position.y = -targetY;
         camera.lookAt(scene.position);
 
-        // Update neural particles
-        const posAttr = particles.geometry.attributes.position;
-        const linePositions = [];
-
-        for (let i = 0; i < particleCount; i++) {
-            let px = posAttr.getX(i) + velocities[i].x;
-            let py = posAttr.getY(i) + velocities[i].y;
-            let pz = posAttr.getZ(i) + velocities[i].z;
-
-            // Boundaries bounce
-            if (px < -180 || px > 180) velocities[i].x *= -1;
-            if (py < -140 || py > 140) velocities[i].y *= -1;
-            if (pz < -120 || pz > 120) velocities[i].z *= -1;
-
-            posAttr.setXYZ(i, px, py, pz);
-
-            // Connect nearby particles
-            for (let j = i + 1; j < particleCount; j++) {
-                const dx = px - posAttr.getX(j);
-                const dy = py - posAttr.getY(j);
-                const dz = pz - posAttr.getZ(j);
-                const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                if (dist < 42) {
-                    linePositions.push(px, py, pz);
-                    linePositions.push(posAttr.getX(j), posAttr.getY(j), posAttr.getZ(j));
-                }
-            }
-        }
-        posAttr.needsUpdate = true;
-
-        // Update synaptic lines
-        if (linesMesh) scene.remove(linesMesh);
-        const lineGeometry = new THREE.BufferGeometry();
-        lineGeometry.setAttribute(
-            'position',
-            new THREE.Float32BufferAttribute(linePositions, 3)
-        );
-        linesMesh = new THREE.LineSegments(lineGeometry, linesMaterial);
-        scene.add(linesMesh);
-
-        // Update floating blockchain blocks
-        blockMeshes.forEach(mesh => {
-            mesh.rotation.x += mesh.userData.rotSpeedX;
-            mesh.rotation.y += mesh.userData.rotSpeedY;
-            mesh.position.y += Math.sin(elapsedTime * 2 + mesh.userData.offset) * 0.15;
+        // Animate floating orbs
+        orbs.forEach((orb, i) => {
+            orb.position.y += Math.sin(elapsedTime * 0.8 + orb.userData.phase) * 0.12;
+            orb.position.x += Math.cos(elapsedTime * 0.5 + orb.userData.phase) * 0.08;
+            orb.rotation.y += 0.003;
         });
+
+        // Rotate particles slowly
+        particles.rotation.y = elapsedTime * 0.02;
 
         renderer.render(scene, camera);
     }
