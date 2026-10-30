@@ -1,0 +1,15 @@
+{
+  "name": "proyecto_web3",
+  "version": "1.0.0",
+  "description": "Proyecto Web 3.0 - Future AI con soporte para NPM",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}
