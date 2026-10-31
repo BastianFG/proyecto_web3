@@ -5,7 +5,7 @@ export class BotEngine {
         this.currentTemplate = 'sales'; // 'sales' | 'support' | 'booking' | 'custom'
         this.botName = 'Sofía (Ventas AI)';
         this.botAvatar = '🤖';
-        this.companyName = 'Nexa Tech';
+        this.companyName = 'Kuxo';
         this.botTone = 'amigable'; // 'amigable' | 'formal' | 'ejecutivo'
 
         // Custom Knowledge Base FAQs
@@ -35,7 +35,7 @@ export class BotEngine {
             sales: {
                 name: 'Sofía • Ventas & Leads',
                 avatar: '💼',
-                welcome: '¡Hola! 👋 Soy Sofía, asistente virtual de ventas de **Nexa Tech**. ¿Te gustaría conocer nuestros planes, agendar una demo o cotizar un chatbot para tu página web?',
+                welcome: '¡Hola! 👋 Soy Sofía, asistente virtual de ventas de **Kuxo**. ¿Te gustaría conocer nuestros planes, agendar una demo o cotizar un chatbot para tu página web?',
                 quickChips: [
                     '💰 Ver Planes y Precios',
                     '🎯 Solicitar Demo Gratuita',
@@ -66,7 +66,7 @@ export class BotEngine {
                 ]
             },
             custom: {
-                name: 'NexaBot • Asistente Personalizado',
+                name: 'KuxoBot • Asistente Personalizado',
                 avatar: '✨',
                 welcome: '¡Bienvenido! Soy tu asistente de IA personalizado. He sido entrenado con la base de conocimientos de tu empresa. ¿En qué puedo orientarte hoy?',
                 quickChips: [

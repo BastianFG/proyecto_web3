@@ -1,0 +1,29 @@
+    <!-- ===== Widget de chat flotante (partials/chat-widget.html) =====
+         El JavaScript del chat se descarga solo cuando el usuario lo necesita (src/site.js). -->
+    <div id="floating-widget-wrapper" class="floating-widget-wrapper">
+        <div id="floating-widget-window" class="floating-widget-window hidden" role="dialog" aria-label="Chat con asistente KUXO AI">
+            <div class="widget-header">
+                <div class="widget-bot-profile">
+                    <div class="bot-avatar-wrap" id="floating-avatar" aria-hidden="true">💼</div>
+                    <div class="bot-info">
+                        <div class="bot-name" id="floating-bot-name">Sofía • Asistente Kuxo</div>
+                        <div class="bot-online-badge">
+                            <span class="status-dot"></span>
+                            <span>En línea para ayudarte</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="widget-close-btn" id="floating-btn-close" type="button" aria-label="Cerrar chat">&times;</button>
+            </div>
+            <div class="widget-messages" id="floating-chat-messages" aria-live="polite"></div>
+            <div class="widget-chips-area" id="floating-quick-chips"></div>
+            <div class="widget-input-bar">
+                <input type="text" id="floating-chat-input" class="widget-input" placeholder="Escribe tu mensaje..." autocomplete="off" aria-label="Escribe tu mensaje">
+                <button id="floating-btn-send" class="widget-send-btn" type="button" aria-label="Enviar mensaje"><span aria-hidden="true">➤</span></button>
+            </div>
+        </div>
+        <button id="floating-widget-trigger" class="floating-trigger-btn" type="button" aria-label="Abrir chat con el asistente">
+            <span class="trigger-icon" aria-hidden="true">💬</span>
+            <span class="unread-badge" id="floating-unread-badge" aria-hidden="true">1</span>
+        </button>
+    </div>

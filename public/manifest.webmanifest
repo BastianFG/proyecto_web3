@@ -1,0 +1,14 @@
+{
+  "name": "KUXO AI — Chatbots con IA para páginas web",
+  "short_name": "KUXO AI",
+  "description": "Chatbots con inteligencia artificial para tu página web: atención 24/7, captación de clientes y reservas.",
+  "lang": "es",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080911",
+  "theme_color": "#080911",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

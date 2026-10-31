@@ -15,7 +15,8 @@ export class AnalyticsManager {
     }
 
     loadLeads() {
-        const saved = localStorage.getItem('nexa_leads');
+        // Migra leads guardados con la clave antigua si existen
+        const saved = localStorage.getItem('kuxo_leads') || localStorage.getItem('ziravo_leads') || localStorage.getItem('nexa_leads');
         if (saved) {
             try {
                 this.leads = JSON.parse(saved);
@@ -51,7 +52,7 @@ export class AnalyticsManager {
     }
 
     saveLeads() {
-        localStorage.setItem('nexa_leads', JSON.stringify(this.leads));
+        localStorage.setItem('kuxo_leads', JSON.stringify(this.leads));
     }
 
     subscribe(callback) {

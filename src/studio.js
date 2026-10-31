@@ -34,10 +34,10 @@ export class BotStudio {
     getEmbedSnippet(type = 'script') {
         const c = this.config;
         if (type === 'script') {
-            return `<!-- Nexa AI Chatbot Widget para Sitio Web -->
+            return `<!-- Kuxo AI Chatbot Widget para Sitio Web -->
 <script 
-  src="https://cdn.nexa-ai.com/v1/widget.js" 
-  data-bot-id="nexa_${Math.abs(c.botName.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0))}" 
+  src="https://cdn.kuxo.ai/v1/widget.js" 
+  data-bot-id="kuxo_${Math.abs(c.botName.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0))}" 
   data-bot-name="${c.botName}"
   data-primary-color="${c.primaryColor}"
   data-position="bottom-right"
@@ -50,9 +50,9 @@ import Script from 'next/script';
 export default function ChatbotWidget() {
   return (
     <Script
-      src="https://cdn.nexa-ai.com/v1/widget.js"
+      src="https://cdn.kuxo.ai/v1/widget.js"
       strategy="lazyOnload"
-      data-bot-id="nexa_production"
+      data-bot-id="kuxo_production"
       data-primary-color="${c.primaryColor}"
       data-bot-name="${c.botName}"
     />
@@ -61,7 +61,7 @@ export default function ChatbotWidget() {
         } else {
             return `<!-- Iframe Embed directo -->
 <iframe 
-  src="https://app.nexa-ai.com/embed/nexa_live?color=${encodeURIComponent(c.primaryColor)}&name=${encodeURIComponent(c.botName)}"
+  src="https://app.kuxo.ai/embed/kuxo_live?color=${encodeURIComponent(c.primaryColor)}&name=${encodeURIComponent(c.botName)}"
   width="100%" 
   height="600" 
   frameborder="0" 

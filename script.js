@@ -1,4 +1,3 @@
-import { initModernBackground } from './src/background3d.js';
 import { sfx } from './src/audio.js';
 import { botEngine } from './src/botEngine.js';
 import { studio } from './src/studio.js';
@@ -33,8 +32,13 @@ function showToast(message, type = 'info') {
 // MASTER INITIALIZATION
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Modern 3D Ambient Canvas
-    initModernBackground('dynamic-bg');
+    // 1. Initialize Modern 3D Ambient Canvas (deferred to idle time for instant LCP/INP)
+    const startBg = () => import('./src/background3d.js').then(({ initModernBackground }) => initModernBackground('dynamic-bg'));
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(startBg, { timeout: 1500 });
+    } else {
+        setTimeout(startBg, 300);
+    }
 
     // 2. Audio Toggle
     const btnSound = document.getElementById('btn-toggle-sound');
@@ -64,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Header CTA: Open Floating Chatbot
+    // Header & Footer CTAs: Open Floating Chatbot
     const btnHeaderDemo = document.getElementById('btn-header-demo');
     if (btnHeaderDemo) {
         btnHeaderDemo.addEventListener('click', () => {
@@ -73,6 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (trigger) trigger.click();
         });
     }
+
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-open-chat]');
+        if (!btn) return;
+        e.preventDefault();
+        sfx.playClick();
+        if (!floatingWidget.isOpen) {
+            document.getElementById('floating-widget-trigger')?.click();
+        }
+        const msg = btn.dataset.openChat;
+        if (msg) floatingWidget.handleUserText(msg);
+    });
 
     // 4. Industry Template Switcher
     const templateTabs = document.querySelectorAll('.template-tab');
@@ -116,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const val = e.target.value.trim() || 'Sofía';
             studio.updateConfig({ botName: val });
             if (simBotName) simBotName.textContent = `${val} • Personalizado`;
-            if (floatingBotName) floatingBotName.textContent = `${val} • Asistente Nexa`;
+            if (floatingBotName) floatingBotName.textContent = `${val} • Asistente Kuxo`;
         });
     }
 
@@ -283,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `nexa_leads_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = `kuxo_leads_${new Date().toISOString().split('T')[0]}.csv`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

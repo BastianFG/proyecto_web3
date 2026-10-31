@@ -1,0 +1,69 @@
+    <!-- ===== Cabecera común (partials/header.html) ===== -->
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="site-header-inner container">
+            <a class="nav-brand" href="/" aria-label="KUXO AI — Inicio">
+                <span class="brand-glyph" aria-hidden="true">
+                    <span class="glyph-core"></span>
+                    <span class="glyph-ring"></span>
+                </span>
+                <span class="brand-name">KUXO<span class="brand-glow">AI</span></span>
+            </a>
+
+            <nav class="site-nav" aria-label="Navegación principal">
+                <button class="site-nav-link nav-solutions-btn" type="button" popovertarget="menu-soluciones">
+                    Soluciones <span aria-hidden="true">▾</span>
+                </button>
+                <a class="site-nav-link" href="/#como-funciona">Cómo funciona</a>
+                <a class="site-nav-link" href="/#demo">Demo en vivo</a>
+                <a class="site-nav-link" href="/precios/">Precios</a>
+                <a class="site-nav-link" href="/#preguntas-frecuentes">Preguntas frecuentes</a>
+            </nav>
+
+            <div class="site-header-actions">
+                <button class="btn-primary" type="button" data-open-chat>Probar gratis</button>
+                <button class="btn-icon site-menu-btn" type="button" popovertarget="menu-mobile" aria-label="Abrir menú">☰</button>
+            </div>
+        </div>
+
+        <!-- Menú Soluciones (Popover API nativa, sin JavaScript) -->
+        <div id="menu-soluciones" class="nav-popover" popover>
+            <p class="nav-popover-title">Chatbots con IA para…</p>
+            <a class="nav-popover-item" href="/chatbot-atencion-al-cliente/">
+                <span class="npi-icon" aria-hidden="true">🛟</span>
+                <span><strong>Atención al cliente</strong><small>Responde dudas 24/7 y deriva a tu equipo</small></span>
+            </a>
+            <a class="nav-popover-item" href="/chatbot-para-ventas/">
+                <span class="npi-icon" aria-hidden="true">🎯</span>
+                <span><strong>Ventas y captación</strong><small>Convierte visitas en clientes potenciales</small></span>
+            </a>
+            <a class="nav-popover-item" href="/chatbot-para-reservas/">
+                <span class="npi-icon" aria-hidden="true">📅</span>
+                <span><strong>Reservas y citas</strong><small>Agenda turnos sin llamadas ni mensajes</small></span>
+            </a>
+            <a class="nav-popover-item" href="/chatbot-para-tienda-online/">
+                <span class="npi-icon" aria-hidden="true">🛒</span>
+                <span><strong>Tiendas online</strong><small>Shopify, WooCommerce y Tiendanube</small></span>
+            </a>
+            <a class="nav-popover-item" href="/chatbot-para-wordpress/">
+                <span class="npi-icon" aria-hidden="true">🧩</span>
+                <span><strong>WordPress</strong><small>Instálalo en 1 minuto, sin plugins pesados</small></span>
+            </a>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="menu-mobile" class="nav-popover nav-popover-mobile" popover>
+            <a class="nav-popover-link" href="/">Inicio</a>
+            <a class="nav-popover-link" href="/#como-funciona">Cómo funciona</a>
+            <a class="nav-popover-link" href="/#demo">Demo en vivo</a>
+            <p class="nav-popover-title">Soluciones</p>
+            <a class="nav-popover-link" href="/chatbot-atencion-al-cliente/">🛟 Atención al cliente</a>
+            <a class="nav-popover-link" href="/chatbot-para-ventas/">🎯 Ventas y captación</a>
+            <a class="nav-popover-link" href="/chatbot-para-reservas/">📅 Reservas y citas</a>
+            <a class="nav-popover-link" href="/chatbot-para-tienda-online/">🛒 Tiendas online</a>
+            <a class="nav-popover-link" href="/chatbot-para-wordpress/">🧩 WordPress</a>
+            <p class="nav-popover-title">Empresa</p>
+            <a class="nav-popover-link" href="/precios/">💳 Precios</a>
+            <a class="nav-popover-link" href="/#preguntas-frecuentes">❓ Preguntas frecuentes</a>
+        </div>
+    </header>

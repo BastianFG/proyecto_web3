@@ -3,15 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXA AI // Chatbots Inteligentes para Sitios Web</title>
-    <meta name="description" content="Plataforma moderna de Chatbots con Inteligencia Artificial para páginas web. Atención 24/7, captura de leads e integración en 1 minuto.">
-    
-    <!-- Google Fonts: Modern SaaS Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>KUXO AI — Chatbots con Inteligencia Artificial para tu Página Web (Atención 24/7 y Ventas)</title>
+    <meta name="description" content="Instala un chatbot con IA en tu página web en 1 minuto. Atiende clientes 24/7, responde preguntas frecuentes, agenda citas y captura prospectos de ventas automáticamente.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="{{SITE_URL}}/">
 
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{SITE_URL}}/">
+    <meta property="og:title" content="KUXO AI — Chatbots con IA para tu Página Web">
+    <meta property="og:description" content="Atiende 24/7, capta prospectos y agenda citas en tu web. Compatible con WordPress, Shopify, WooCommerce y HTML.">
+    <!-- @include head-common -->
+    <link rel="stylesheet" href="/style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "KUXO AI",
+          "url": "{{SITE_URL}}/",
+          "logo": "{{SITE_URL}}/apple-touch-icon.png",
+          "description": "Plataforma de chatbots con inteligencia artificial para páginas web: atención al cliente 24/7, captación de leads y reservas."
+        },
+        {
+          "@type": "WebSite",
+          "name": "KUXO AI",
+          "url": "{{SITE_URL}}/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "KUXO AI Chatbot",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "29",
+            "highPrice": "79",
+            "priceCurrency": "USD",
+            "offerCount": "3"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué es KUXO AI y para qué sirve?",
+              "acceptedAnswer": { "@type": "Answer", "text": "KUXO AI es una plataforma que agrega un asistente virtual con inteligencia artificial a tu página web para atender visitantes 24/7, responder preguntas sobre tu negocio, agendar citas y capturar datos de clientes potenciales (nombre, WhatsApp o email)." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cómo se instala el chatbot en mi página web?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Se instala copiando y pegando una sola línea de código <script> antes de la etiqueta </body> de tu web. Toma menos de 1 minuto y funciona en WordPress, Shopify, WooCommerce, Tiendanube, Wix, Webflow, React y HTML." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Necesito saber programar para entrenarlo?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Desde el Estudio de Personalización escribes las preguntas y respuestas de tu negocio, eliges el color de tu marca y el tono del asistente sin tocar código." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="modern-theme">
 
@@ -24,19 +79,21 @@
     <!-- Navigation Header -->
     <header class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">
-                <div class="brand-glyph">
+            <a href="/" class="nav-brand" aria-label="KUXO AI — Inicio">
+                <div class="brand-glyph" aria-hidden="true">
                     <span class="glyph-core"></span>
                     <span class="glyph-ring"></span>
                 </div>
-                <div class="brand-name">NEXA<span class="brand-glow">AI</span></div>
-            </div>
+                <div class="brand-name">KUXO<span class="brand-glow">AI</span></div>
+            </a>
 
-            <nav class="nav-links">
-                <a href="#simulator-section" class="nav-link">Demostración en Vivo</a>
-                <a href="#studio-section" class="nav-link">Personalizar Bot</a>
-                <a href="#integration-section" class="nav-link">Código de Inserción</a>
-                <a href="#leads-section" class="nav-link">Bandeja de Leads</a>
+            <nav class="nav-links" aria-label="Navegación principal">
+                <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+                <a href="#simulator-section" class="nav-link">Demo en Vivo</a>
+                <a href="#studio-section" class="nav-link">Personalizar</a>
+                <a href="#soluciones-seo" class="nav-link">Soluciones</a>
+                <a href="/precios/" class="nav-link">Precios</a>
+                <a href="#preguntas-frecuentes" class="nav-link">FAQs</a>
             </nav>
 
             <div class="nav-actions">
@@ -45,11 +102,11 @@
                     <span>IA Activa • &lt;0.8s</span>
                 </div>
 
-                <button id="btn-toggle-sound" class="btn-icon" title="Activar/Silenciar Sonidos">
+                <button id="btn-toggle-sound" class="btn-icon" type="button" title="Activar/Silenciar Sonidos" aria-label="Activar o silenciar sonidos">
                     <span id="sound-icon">🔊</span>
                 </button>
 
-                <button id="btn-header-demo" class="btn-primary glow-effect">
+                <button id="btn-header-demo" class="btn-primary glow-effect" type="button">
                     <span>Probar Chatbot</span>
                 </button>
             </div>
@@ -57,21 +114,21 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main-wrapper">
+    <main id="contenido" class="main-wrapper">
 
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-badge">
                 <span class="badge-spark">✨</span>
-                <span>CHATBOTS DE NUEVA GENERACIÓN PARA SITIOS WEB</span>
+                <span>CHATBOTS CON INTELIGENCIA ARTIFICIAL PARA PÁGINAS WEB</span>
             </div>
 
             <h1 class="hero-title">
-                Convierte a tus visitantes en clientes con <span class="gradient-text">Chatbots de IA</span>
+                Convierte las visitas de tu web en clientes con un <span class="gradient-text">Chatbot de IA 24/7</span>
             </h1>
 
             <p class="hero-description">
-                Atención al cliente 24/7, calificación inteligente de prospectos y respuestas automáticas entrenadas con la información de tu empresa. Se integra en tu página web en 1 minuto.
+                <strong>¿Qué hace KUXO AI?</strong> Es un asistente inteligente que vive en la esquina de tu página web: responde dudas sobre tus precios y servicios en menos de 1 segundo, agenda citas y guarda el nombre y WhatsApp de cada interesado para que no pierdas ninguna venta.
             </p>
 
             <div class="hero-cta-group">
@@ -98,15 +155,43 @@
                     <div class="stat-label">Disponibilidad Ininterrumpida</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">98.6%</div>
-                    <div class="stat-label">Satisfacción de Clientes</div>
+                    <div class="stat-value">1 min</div>
+                    <div class="stat-label">Instalación Sin Código</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Section 0: How it works in 3 simple steps (Clarity for users & SEO) -->
+        <section id="como-funciona" class="section-container">
+            <div class="section-header text-center">
+                <span class="section-tag">SIMPLE Y SIN PROGRAMAR</span>
+                <h2 class="section-title">¿Cómo funciona KUXO AI en 3 pasos?</h2>
+                <p class="section-subtitle">
+                    Cualquier negocio puede tener su propio asistente con inteligencia artificial funcionando hoy mismo.
+                </p>
+            </div>
+            <div class="seo-cards-grid">
+                <article class="modern-card seo-feature-card">
+                    <span class="seo-card-icon" aria-hidden="true">1️⃣</span>
+                    <h3>Entrénalo con tu información</h3>
+                    <p>Escribe tus preguntas frecuentes, precios, horarios y servicios, o elige una plantilla lista para ventas, soporte o reservas.</p>
+                </article>
+                <article class="modern-card seo-feature-card">
+                    <span class="seo-card-icon" aria-hidden="true">2️⃣</span>
+                    <h3>Pega 1 línea en tu web</h3>
+                    <p>Copia el código generado y pégalo en WordPress, Shopify, WooCommerce, Tiendanube, Wix o HTML en menos de 1 minuto.</p>
+                </article>
+                <article class="modern-card seo-feature-card">
+                    <span class="seo-card-icon" aria-hidden="true">3️⃣</span>
+                    <h3>Recibe clientes calificados</h3>
+                    <p>El bot atiende 24/7, responde al instante y registra en tu bandeja el nombre, WhatsApp o correo de cada cliente interesado.</p>
+                </article>
             </div>
         </section>
 
         <!-- Section 1: Interactive Website Simulator with Embedded Chatbot -->
         <section id="simulator-section" class="section-container">
-            <div class="section-header text-center">
+            <div id="demo" class="section-header text-center">
                 <span class="section-tag">SIMULADOR EN TIEMPO REAL</span>
                 <h2 class="section-title">Experimenta el Chatbot tal como lo verán tus clientes</h2>
                 <p class="section-subtitle">
@@ -116,16 +201,16 @@
 
             <!-- Industry Template Switcher -->
             <div class="template-chips-bar">
-                <button class="template-tab active" data-template="sales">
-                    <span class="chip-icon">💼</span> Ventas & Captura de Leads
+                <button class="template-tab active" type="button" data-template="sales">
+                    <span class="chip-icon">💼</span> Ventas &amp; Captura de Leads
                 </button>
-                <button class="template-tab" data-template="support">
-                    <span class="chip-icon">🛠️</span> Soporte & Atención al Cliente
+                <button class="template-tab" type="button" data-template="support">
+                    <span class="chip-icon">🛠️</span> Soporte &amp; Atención al Cliente
                 </button>
-                <button class="template-tab" data-template="booking">
-                    <span class="chip-icon">📅</span> Reservas & Citas
+                <button class="template-tab" type="button" data-template="booking">
+                    <span class="chip-icon">📅</span> Reservas &amp; Citas
                 </button>
-                <button class="template-tab" data-template="custom">
+                <button class="template-tab" type="button" data-template="custom">
                     <span class="chip-icon">✨</span> Base de Datos Personalizada
                 </button>
             </div>
@@ -153,10 +238,10 @@
                     
                     <!-- Mock Landing Content on the left -->
                     <div class="mock-website-hero">
-                        <div class="mock-pill">Bienvenido a CloudFlow SaaS</div>
-                        <h2 class="mock-h2">Acelera tus operaciones digitales con soluciones modernas</h2>
+                        <div class="mock-pill">Ejemplo: Tu Propio Sitio Web</div>
+                        <h3 class="mock-h2">Acelera tus ventas digitales con atención inmediata</h3>
                         <p class="mock-p">
-                            Nuestra plataforma centraliza tus ventas, clientes y procesos en un entorno seguro y de alta disponibilidad.
+                            Así se ve tu página web con el asistente KUXO AI integrado a la derecha. Haz clic en las opciones del chat o escribe una pregunta para probarlo.
                         </p>
                         <div class="mock-btns">
                             <span class="mock-btn-main">Comenzar Ahora</span>
@@ -175,8 +260,8 @@
                             <div class="mock-f-item">
                                 <span class="f-icon">🔒</span>
                                 <div>
-                                    <strong>Seguridad Bancaria</strong>
-                                    <p>Encriptación de extremo a extremo.</p>
+                                    <strong>Privacidad y Control</strong>
+                                    <p>Entrenado solo con los datos de tu negocio.</p>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +275,7 @@
                                 <div class="widget-bot-profile">
                                     <div class="bot-avatar-wrap" id="sim-avatar">💼</div>
                                     <div class="bot-info">
-                                        <div class="bot-name" id="sim-bot-name">Sofía • Ventas & Leads</div>
+                                        <div class="bot-name" id="sim-bot-name">Sofía • Ventas &amp; Leads</div>
                                         <div class="bot-online-badge">
                                             <span class="status-dot"></span>
                                             <span>En línea • Responde al instante</span>
@@ -198,24 +283,20 @@
                                     </div>
                                 </div>
                                 <div class="widget-header-actions">
-                                    <button class="widget-mini-btn" id="sim-btn-reset" title="Reiniciar conversación">🔄</button>
+                                    <button class="widget-mini-btn" id="sim-btn-reset" type="button" title="Reiniciar conversación">🔄</button>
                                 </div>
                             </div>
 
                             <!-- Messages Area -->
-                            <div class="widget-messages" id="sim-chat-messages">
-                                <!-- Populated by JS -->
-                            </div>
+                            <div class="widget-messages" id="sim-chat-messages"></div>
 
                             <!-- Quick Reply Action Chips -->
-                            <div class="widget-chips-area" id="sim-quick-chips">
-                                <!-- Populated dynamically -->
-                            </div>
+                            <div class="widget-chips-area" id="sim-quick-chips"></div>
 
                             <!-- Input Area -->
                             <div class="widget-input-bar">
                                 <input type="text" id="sim-chat-input" class="widget-input" placeholder="Escribe tu mensaje o duda aquí..." autocomplete="off">
-                                <button id="sim-btn-send" class="widget-send-btn" title="Enviar Mensaje">
+                                <button id="sim-btn-send" class="widget-send-btn" type="button" title="Enviar Mensaje">
                                     <span>➤</span>
                                 </button>
                             </div>
@@ -228,7 +309,7 @@
 
         <!-- Section 2: Bot Customization Studio -->
         <section id="studio-section" class="section-container">
-            <div class="section-header text-center">
+            <div id="personalizar" class="section-header text-center">
                 <span class="section-tag">ESTUDIO DE PERSONALIZACIÓN</span>
                 <h2 class="section-title">Diseña y adapta el Chatbot a la identidad de tu marca</h2>
                 <p class="section-subtitle">
@@ -253,22 +334,22 @@
                     <div class="form-group">
                         <label class="form-label">Avatar del Asistente:</label>
                         <div class="avatar-options-grid">
-                            <button class="avatar-opt-btn active" data-avatar="💼">💼 Ejecutiva</button>
-                            <button class="avatar-opt-btn" data-avatar="🤖">🤖 Robot 3D</button>
-                            <button class="avatar-opt-btn" data-avatar="🛠️">🛠️ Técnico</button>
-                            <button class="avatar-opt-btn" data-avatar="⚡">⚡ Nexa Core</button>
-                            <button class="avatar-opt-btn" data-avatar="👩‍💼">👩‍💼 Asesora</button>
+                            <button class="avatar-opt-btn active" type="button" data-avatar="💼">💼 Ejecutiva</button>
+                            <button class="avatar-opt-btn" type="button" data-avatar="🤖">🤖 Robot 3D</button>
+                            <button class="avatar-opt-btn" type="button" data-avatar="🛠️">🛠️ Técnico</button>
+                            <button class="avatar-opt-btn" type="button" data-avatar="⚡">⚡ Kuxo Core</button>
+                            <button class="avatar-opt-btn" type="button" data-avatar="👩‍💼">👩‍💼 Asesora</button>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Color de Marca del Widget:</label>
                         <div class="color-palette-row">
-                            <button class="color-circle-btn active" data-color="#6366f1" style="background:#6366f1;" title="Indigo Eléctrico"></button>
-                            <button class="color-circle-btn" data-color="#06b6d4" style="background:#06b6d4;" title="Cyan Tech"></button>
-                            <button class="color-circle-btn" data-color="#10b981" style="background:#10b981;" title="Esmeralda"></button>
-                            <button class="color-circle-btn" data-color="#8b5cf6" style="background:#8b5cf6;" title="Violeta"></button>
-                            <button class="color-circle-btn" data-color="#f43f5e" style="background:#f43f5e;" title="Rosa Neón"></button>
+                            <button class="color-circle-btn active" type="button" data-color="#6366f1" style="background:#6366f1;" title="Indigo Eléctrico"></button>
+                            <button class="color-circle-btn" type="button" data-color="#06b6d4" style="background:#06b6d4;" title="Cyan Tech"></button>
+                            <button class="color-circle-btn" type="button" data-color="#10b981" style="background:#10b981;" title="Esmeralda"></button>
+                            <button class="color-circle-btn" type="button" data-color="#8b5cf6" style="background:#8b5cf6;" title="Violeta"></button>
+                            <button class="color-circle-btn" type="button" data-color="#f43f5e" style="background:#f43f5e;" title="Rosa Neón"></button>
                         </div>
                     </div>
 
@@ -286,7 +367,7 @@
                 <div class="modern-card">
                     <div class="card-title-row">
                         <span class="card-icon">🧠</span>
-                        <h3>Entrenamiento & Base de Conocimientos (FAQs)</h3>
+                        <h3>Entrenamiento &amp; Base de Conocimientos (FAQs)</h3>
                     </div>
 
                     <p class="card-caption">
@@ -302,7 +383,7 @@
                             <label class="form-label" for="faq-answer-input">Respuesta que debe dar el Bot:</label>
                             <textarea id="faq-answer-input" class="modern-textarea" rows="2" placeholder="Ej: ¡Sí! Realizamos envíos a todo el país en 24 a 48 horas hábiles..."></textarea>
                         </div>
-                        <button id="btn-add-faq" class="btn-primary full-width">
+                        <button id="btn-add-faq" class="btn-primary full-width" type="button">
                             <span>➕ Guardar y Entrenar Conocimiento</span>
                         </button>
                     </div>
@@ -312,9 +393,7 @@
                             <span class="faq-list-title">Preguntas Entrenadas Activas:</span>
                             <span class="badge-count" id="faqs-count">3 FAQs</span>
                         </div>
-                        <div class="faqs-list" id="faqs-list-container">
-                            <!-- Populated dynamically -->
-                        </div>
+                        <div class="faqs-list" id="faqs-list-container"></div>
                     </div>
                 </div>
 
@@ -323,7 +402,7 @@
 
         <!-- Section 3: 1-Click Integration & Embed Code Generator -->
         <section id="integration-section" class="section-container">
-            <div class="section-header text-center">
+            <div id="instalacion" class="section-header text-center">
                 <span class="section-tag">INSTALACIÓN EN 1 MINUTO</span>
                 <h2 class="section-title">Lleva el Chatbot a cualquier página web</h2>
                 <p class="section-subtitle">
@@ -334,11 +413,11 @@
             <div class="code-generator-card">
                 <div class="code-card-header">
                     <div class="platform-tabs">
-                        <button class="plat-tab active" data-type="script">HTML / WordPress / Shopify</button>
-                        <button class="plat-tab" data-type="react">React / Next.js</button>
-                        <button class="plat-tab" data-type="iframe">Iframe Directo</button>
+                        <button class="plat-tab active" type="button" data-type="script">HTML / WordPress / Shopify</button>
+                        <button class="plat-tab" type="button" data-type="react">React / Next.js</button>
+                        <button class="plat-tab" type="button" data-type="iframe">Iframe Directo</button>
                     </div>
-                    <button id="btn-copy-code" class="btn-copy">
+                    <button id="btn-copy-code" class="btn-copy" type="button">
                         <span id="copy-btn-icon">📋</span>
                         <span id="copy-btn-text">Copiar Código</span>
                     </button>
@@ -349,12 +428,12 @@
                 </div>
 
                 <div class="compatibility-badges">
-                    <span class="compat-item">✓ WordPress</span>
-                    <span class="compat-item">✓ Shopify</span>
-                    <span class="compat-item">✓ WooCommerce</span>
-                    <span class="compat-item">✓ Wix</span>
-                    <span class="compat-item">✓ Webflow</span>
-                    <span class="compat-item">✓ React & Next.js</span>
+                    <a href="/chatbot-para-wordpress/" class="compat-item">✓ WordPress</a>
+                    <a href="/chatbot-para-tienda-online/" class="compat-item">✓ Shopify</a>
+                    <a href="/chatbot-para-tienda-online/" class="compat-item">✓ WooCommerce</a>
+                    <a href="/chatbot-para-tienda-online/" class="compat-item">✓ Tiendanube</a>
+                    <span class="compat-item">✓ Wix &amp; Webflow</span>
+                    <span class="compat-item">✓ React &amp; Next.js</span>
                     <span class="compat-item">✓ HTML5</span>
                 </div>
             </div>
@@ -376,7 +455,7 @@
                         <h3 id="leads-count-title">Prospectos Capturados</h3>
                         <span class="leads-sub">Datos listos para sincronización con CRM o seguimiento de ventas</span>
                     </div>
-                    <button id="btn-export-csv" class="btn-secondary">
+                    <button id="btn-export-csv" class="btn-secondary" type="button">
                         <span>📥 Exportar a CSV / Excel</span>
                     </button>
                 </div>
@@ -389,68 +468,94 @@
                                 <th>Nombre</th>
                                 <th>Contacto (Email / Teléfono)</th>
                                 <th>Interés / Consulta</th>
-                                <th>Fecha & Hora</th>
+                                <th>Fecha &amp; Hora</th>
                                 <th>Estado</th>
                             </tr>
                         </thead>
-                        <tbody id="leads-table-body">
-                            <!-- Populated dynamically -->
-                        </tbody>
+                        <tbody id="leads-table-body"></tbody>
                     </table>
                 </div>
             </div>
         </section>
 
+        <!-- Section 5: Dedicated SEO Hub Links (Topic Cluster for Organic Growth) -->
+        <section id="soluciones-seo" class="section-container">
+            <div class="section-header text-center">
+                <span class="section-tag">SOLUCIONES POR CASO DE USO</span>
+                <h2 class="section-title">Un Chatbot Especializado para cada Objetivo de tu Negocio</h2>
+                <p class="section-subtitle">
+                    Explora cómo KUXO AI se adapta a tu industria y plataforma web para multiplicar resultados.
+                </p>
+            </div>
+
+            <div class="seo-cards-grid">
+                <a href="/chatbot-atencion-al-cliente/" class="modern-card seo-feature-card seo-link-card">
+                    <span class="seo-card-icon" aria-hidden="true">🛟</span>
+                    <h3>Chatbot de Atención al Cliente 24/7</h3>
+                    <p>Resuelve hasta el 80% de las consultas frecuentes en menos de 1 segundo y deriva casos complejos a tu equipo.</p>
+                    <span class="seo-card-cta">Ver solución de soporte →</span>
+                </a>
+                <a href="/chatbot-para-ventas/" class="modern-card seo-feature-card seo-link-card">
+                    <span class="seo-card-icon" aria-hidden="true">🎯</span>
+                    <h3>Chatbot para Ventas y Captación de Leads</h3>
+                    <p>Engancha a tus visitantes, responde dudas de precios y guarda su nombre y WhatsApp antes de que abandonen tu web.</p>
+                    <span class="seo-card-cta">Ver solución de ventas →</span>
+                </a>
+                <a href="/chatbot-para-reservas/" class="modern-card seo-feature-card seo-link-card">
+                    <span class="seo-card-icon" aria-hidden="true">📅</span>
+                    <h3>Chatbot para Reservas y Citas Online</h3>
+                    <p>Agenda turnos para clínicas, consultorios, restaurantes, inmobiliarias y asesorías las 24 horas.</p>
+                    <span class="seo-card-cta">Ver solución de reservas →</span>
+                </a>
+                <a href="/chatbot-para-tienda-online/" class="modern-card seo-feature-card seo-link-card">
+                    <span class="seo-card-icon" aria-hidden="true">🛒</span>
+                    <h3>Chatbot para Tiendas Online (E-commerce)</h3>
+                    <p>Reduce carritos abandonados en Shopify, WooCommerce y Tiendanube respondiendo dudas de envíos y pagos.</p>
+                    <span class="seo-card-cta">Ver solución e-commerce →</span>
+                </a>
+                <a href="/chatbot-para-wordpress/" class="modern-card seo-feature-card seo-link-card">
+                    <span class="seo-card-icon" aria-hidden="true">🧩</span>
+                    <h3>Chatbot con IA para WordPress</h3>
+                    <p>Instálalo en WordPress, Elementor o Divi con una sola línea de código, sin plugins pesados que frenen tu web.</p>
+                    <span class="seo-card-cta">Ver guía WordPress →</span>
+                </a>
+                <a href="/precios/" class="modern-card seo-feature-card seo-link-card">
+                    <span class="seo-card-icon" aria-hidden="true">💳</span>
+                    <h3>Planes y Precios Transparentes</h3>
+                    <p>Desde $29 USD/mes con 14 días de prueba gratuita sin tarjeta de crédito y cancelación en 1 clic.</p>
+                    <span class="seo-card-cta">Comparar planes →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 6: Native Accordion FAQ (SEO + User Clarity) -->
+        <section id="preguntas-frecuentes" class="section-container">
+            <div class="section-header text-center">
+                <span class="section-tag">RESPUESTAS CLARAS</span>
+                <h2 class="section-title">Preguntas Frecuentes sobre KUXO AI</h2>
+            </div>
+            <div class="seo-faq-list">
+                <details class="seo-faq-item" open>
+                    <summary>¿Qué es KUXO AI y qué hace exactamente en mi página web?</summary>
+                    <p>KUXO AI agrega una burbuja de chat inteligente en tu sitio web que atiende a tus visitantes las 24 horas. Responde preguntas sobre tu negocio, orienta en la compra, agenda citas y captura el nombre y WhatsApp o correo de los interesados.</p>
+                </details>
+                <details class="seo-faq-item">
+                    <summary>¿Necesito conocimientos técnicos o de programación?</summary>
+                    <p>No. Todo se configura desde un panel visual y se instala pegando una sola línea de código antes de <code>&lt;/body&gt;</code>, compatible con WordPress, Shopify, WooCommerce, Tiendanube, Wix, Webflow y HTML.</p>
+                </details>
+                <details class="seo-faq-item">
+                    <summary>¿Afecta la velocidad de carga o el SEO de mi sitio web?</summary>
+                    <p>Al contrario: el widget se carga de forma asincrónica (<code>async</code>) sin bloquear el renderizado de tu página, y al aumentar el tiempo de permanencia y la interacción de los visitantes, favorece tus métricas de experiencia de usuario.</p>
+                </details>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Floating Chatbot Widget (Always available at bottom-right of user screen) -->
-    <div id="floating-widget-wrapper" class="floating-widget-wrapper">
-        
-        <!-- Floating Window -->
-        <div id="floating-widget-window" class="floating-widget-window hidden">
-            <!-- Window Header -->
-            <div class="widget-header">
-                <div class="widget-bot-profile">
-                    <div class="bot-avatar-wrap" id="floating-avatar">💼</div>
-                    <div class="bot-info">
-                        <div class="bot-name" id="floating-bot-name">Sofía • Asistente Nexa</div>
-                        <div class="bot-online-badge">
-                            <span class="status-dot"></span>
-                            <span>En línea para ayudarte</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="widget-close-btn" id="floating-btn-close">&times;</button>
-            </div>
-
-            <!-- Messages Stream -->
-            <div class="widget-messages" id="floating-chat-messages">
-                <!-- Populated dynamically -->
-            </div>
-
-            <!-- Quick Chips -->
-            <div class="widget-chips-area" id="floating-quick-chips">
-                <!-- Populated dynamically -->
-            </div>
-
-            <!-- Input Bar -->
-            <div class="widget-input-bar">
-                <input type="text" id="floating-chat-input" class="widget-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="floating-btn-send" class="widget-send-btn">
-                    <span>➤</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Floating Trigger Button -->
-        <button id="floating-widget-trigger" class="floating-trigger-btn" title="Abrir Chatbot">
-            <span class="trigger-icon">💬</span>
-            <span class="unread-badge" id="floating-unread-badge">1</span>
-        </button>
-
-    </div>
+    <!-- @include footer -->
+    <!-- @include chat-widget -->
 
     <!-- Master Controller Script -->
-    <script type="module" src="script.js"></script>
+    <script type="module" src="/script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# NEXA AI // Plataforma de Chatbots Inteligentes para Sitios Web
+# KUXO AI // Plataforma de Chatbots Inteligentes para Sitios Web
 
 Solución moderna y de alta conversión para integrar **Chatbots con Inteligencia Artificial** en cualquier página web (WordPress, Shopify, React, HTML5, Wix, Webflow).
 

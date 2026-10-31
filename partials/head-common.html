@@ -1,0 +1,34 @@
+    <!-- ===== Común a todas las páginas (partials/head-common.html) ===== -->
+    <meta name="theme-color" content="#080911">
+    <meta name="color-scheme" content="dark">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <!-- Tipografías sin bloquear el renderizado -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap"></noscript>
+
+    <!-- Open Graph / redes sociales (valores comunes) -->
+    <meta property="og:site_name" content="KUXO AI">
+    <meta property="og:locale" content="es_LA">
+    <meta property="og:image" content="{{SITE_URL}}/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="KUXO AI — Chatbots con IA para tu página web">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Resumen del sitio para asistentes de IA">
+
+    <!-- Navegación instantánea: precarga páginas internas al pasar el cursor (Speculation Rules API) -->
+    <script type="speculationrules">
+    {
+        "prerender": [{
+            "where": { "and": [ { "href_matches": "/*" }, { "not": { "selector_matches": "[data-no-prerender]" } } ] },
+            "eagerness": "moderate"
+        }]
+    }
+    </script>
